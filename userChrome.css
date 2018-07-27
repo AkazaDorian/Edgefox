@@ -1,0 +1,118 @@
+/* 
+Edgefox userChrome.css tweaks 
+Thanks to https://github.com/aris-t2/customcssforfx for most of the codes
+ */
+
+/* Set toolbar buttons to square */
+#nav-bar .toolbarbutton-icon,
+#nav-bar .toolbarbutton-badge-stack {
+    border-radius: 0px !important;
+}
+
+/* Hide seperator between More and Menu buttons */
+* #PanelUI-button,
+#main-window:not([uidensity=compact]) * #PanelUI-button {
+    margin-inline-start: 0px !important;
+    border-inline-start: 0px solid !important;
+    margin-inline-end: 0px !important;
+    border-inline-end: 0px solid !important;
+    border-image: unset !important;
+    border-image-slice: 0 !important;
+}
+
+/* Disable tab top border roundness */
+#TabsToolbar .tabs-newtab-button,
+#TabsToolbar .tabbrowser-tab,
+#TabsToolbar .tabbrowser-tab .tab-stack,
+#TabsToolbar .tabbrowser-tab .tab-background,
+#TabsToolbar .tabbrowser-tab .tab-content,
+#TabsToolbar .tabbrowser-tab::after,
+#TabsToolbar .tabbrowser-tab::before,
+:root[tabsintitlebar]:not([extradragspace]) #toolbar-menubar[autohide=true] ~ #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab::after,
+:root[tabsintitlebar]:not([extradragspace]) #toolbar-menubar[autohide=true] ~ #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab::before,
+#TabsToolbar .tabbrowser-tab:hover::before,
+#TabsToolbar .tabbrowser-tab[last-visible-tab]:hover::after,
+#TabsToolbar #tabbrowser-tabs:not([movingtab]) > .tabbrowser-tab[afterhovered]::before {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    height: 30px !important;
+}
+
+/* Let tab close button show only when the tab is active or hovered */
+.tabbrowser-tab:not([pinned]):not([selected="true"]):not(:hover) .tab-close-button {
+    visibility: collapse !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Disable the tab line ontop of the active tab */
+.tab-line{
+    display: none !important;
+}
+
+#nav-bar {
+    height: 40px !important;
+}
+
+#TabsToolbar .titlebar-placeholder[type="pre-tabs"],
+#TabsToolbar .titlebar-placeholder[type="post-tabs"] {
+    min-width: 0 !important;
+    width: 0 !important;
+    max-width: 0 !important;
+}
+
+#TabsToolbar .titlebar-placeholder[type="caption-buttons"] {
+    -moz-margin-start: 31px !important;
+}
+
+/* Tab toolbar position */
+#TabsToolbar{
+    padding-right: 2px !important;
+    padding-left: 0px !important;
+    min-height: unset !important;
+}
+
+/* Make address bar Edge-like */
+.searchbar-textbox, #urlbar {
+    border-radius: 0px !important;
+}
+
+#urlbar, .searchbar-textbox {
+    min-height: 0px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+}
+
+.urlbar-icon,
+#main-window[uidensity=compact] .urlbar-icon,
+#main-window[uidensity=touch] .urlbar-icon{
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 !important;
+}
+
+#urlbar #reader-mode-button,
+#main-window[uidensity=compact] #urlbar #reader-mode-button,
+#main-window[uidensity=touch] #urlbar #reader-mode-button{
+    padding: 1px !important;
+}
+
+.searchbar-search-icon {
+    margin-inline-start: 4px !important;
+    margin-inline-end: 4px !important;
+}
+
+/* move star-button to boxes last position */
+#star-button-box{
+    -moz-box-ordinal-group: 100 !important;
+}
+
+/* make dropmarker always invisible */
+#urlbar .autocomplete-history-dropmarker,
+#urlbar .urlbar-history-dropmarker,
+#urlbar:not(:hover) > .urlbar-textbox-container > .urlbar-history-dropmarker {
+opacity: 0 !important;
+}
